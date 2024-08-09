@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alter Authentication</title>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+    <script>
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyDBnYpyNuQ_ff7v5LeoZZwJbjdAa2VcsFE",
+        authDomain: "tset-9e3d0.firebaseapp.com",
+        projectId: "tset-9e3d0",
+        storageBucket: "tset-9e3d0.appspot.com",
+        messagingSenderId: "328152190837",
+        appId: "1:328152190837:web:7845175733963ac46d4d3c",
+        measurementId: "G-JN1W16WGZF"
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      // Set up authentication
+      const auth = firebase.auth();
+
+      // Sign in function
+      function signIn() {
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        auth.signInWithEmailAndPassword(email, password)
+          .then((userCredential) => {
+            // Signed in
+            const user = userCredential.user;
+            document.getElementById('user-email').textContent = `Logged in as: ${user.email}`;
+          })
+          .catch((error) => {
+            document.getElementById('user-email').textContent = `Error: ${error.message}`;
+          });
+      }
+
+      // Check if user is logged in
+      auth.onAuthStateChanged((user) => {
+        if (user) {
+          document.getElementById('user-email').textContent = `Logged in as: ${user.email}`;
+        } else {
+          document.getElementById('user-email').textContent = 'Not logged in';
+        }
+      });
+    </script>
+</head>
+<body>
+    <h1>Alter Authentication</h1>
+    <div>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button onclick="signIn()">Sign In</button>
+    </div>
+    <div id="user-email">Not logged in</div>
+</body>
+</html>
