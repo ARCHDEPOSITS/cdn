@@ -36,7 +36,10 @@
             document.getElementById('user-email').textContent = `Logged in as: ${user.email}`;
           })
           .catch((error) => {
-            document.getElementById('user-email').textContent = `Error: ${error.message}`;
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            document.getElementById('user-email').textContent = `Error: ${errorMessage}`;
+            console.error(`Error [${errorCode}]: ${errorMessage}`);
           });
       }
 
