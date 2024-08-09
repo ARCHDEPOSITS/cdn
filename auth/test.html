@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirect Button</title>
+    <title>Authentication</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,11 +15,15 @@
             background-color: #f4f4f4;
         }
 
-        .button-container {
+        .container {
             text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        .redirect-button {
+        .button {
             padding: 15px 30px;
             font-size: 16px;
             color: white;
@@ -30,14 +34,19 @@
             text-decoration: none;
         }
 
-        .redirect-button:hover {
+        .button:hover {
             background-color: #0056b3;
+        }
+
+        h1 {
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="button-container">
-        <a href="https://example.com" class="redirect-button">Go to Example</a>
+    <div class="container">
+        <h1>Authenticate</h1>
+        <a href="https://auth.novacore.app/vina" class="button">Go to Example</a>
     </div>
 </body>
 </html>
