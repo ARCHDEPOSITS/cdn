@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Extract the redirect parameter from the URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const redirectUrl = urlParams.get('redirect');
+            
+            // Redirect to the auth page with the original redirect URL appended
+            if (redirectUrl) {
+                window.location.href = `https://auth.novacore.app?redirect=${encodeURIComponent(redirectUrl)}`;
+            } else {
+                window.location.href = 'https://auth.novacore.app';
+            }
+        });
+    </script>
+</head>
+<body>
+    <p>Redirecting...</p>
+</body>
+</html>
